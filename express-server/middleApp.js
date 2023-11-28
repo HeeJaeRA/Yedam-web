@@ -36,8 +36,7 @@ let sessionSetting = session({
 app.use(sessionSetting);
 
 const corsOptions = {
-	origin: 'http://172.30.1.7:5000',
-	// origin: 'http://192.168.0.47:5000',
+	origin: 'http://192.168.0.47:5000',
 	optionSuccessStatus: 200,
 };
 
