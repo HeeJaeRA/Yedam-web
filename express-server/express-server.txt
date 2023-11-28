@@ -2,4 +2,14 @@ npm init
 
 npm install express
 
+npm install multer
+
+npm install express-session
+
+npm install cors
+
 npm update
+
+https://chromewebstore.google.com/detail/boomerang-soap-rest-clien/eipdnjedkpcnlmmdfdkgfpljanehloah?utm_source=app-launcher
+
+https://www.postman.com/downloads/?utm_source=postman-home
