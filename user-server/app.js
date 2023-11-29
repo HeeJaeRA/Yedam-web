@@ -14,8 +14,8 @@ app.get('/users', async (req, resp) => {
 	resp.send(result);
 });
 
-app.get('/users/:user_no', async (req, resp) => {
-	let result = await mysql.query('userInfo', req.params.user_no);
+app.get('/users/:userNo', async (req, resp) => {
+	let result = await mysql.query('userInfo', req.params.userNo);
 	resp.send(result[0]);
 });
 
@@ -24,13 +24,13 @@ app.post('/users', async (req, resp) => {
 	resp.send(result);
 });
 
-app.put('/users/:user_no', async (req, resp) => {
-	let data = [req.body.data, req.params.user_no];
+app.put('/users/:userNo', async (req, resp) => {
+	let data = [req.body.data, req.params.userNo];
 	let result = await mysql.query('userUpdate', data);
 	resp.send(result);
 });
 
-app.delete('/users/:user_no', async (req, resp) => {
-	let result = await mysql.query('userDelete', req.params.user_no);
+app.delete('/users/:userNo', async (req, resp) => {
+	let result = await mysql.query('userDelete', req.params.userNo);
 	resp.send(result);
 });
