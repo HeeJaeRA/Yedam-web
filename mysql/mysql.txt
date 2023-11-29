@@ -1,0 +1,45 @@
+npm init
+
+npm install express
+npm install mysql
+npm install dotenv
+
+npm install --save-dev nodemon
+
+npm update
+
+// mysql
+https://dev.mysql.com/downloads/windows/installer/8.0.html
+
+Schema - dev (utf8 / utf8_bin)
+
+CREATE USER 'dev'@'%' IDENTIFIED WITH MYSQL_NATIVE_PASSWORD BY '1234';
+GRANT ALL PRIVILEGES ON dev.* TO 'dev'@'%' WITH GRANT OPTION;
+FLUSH PRIVILEGES;
+
+CREATE TABLE `dev`.`customers` (
+`id` INT NOT NULL AUTO_INCREMENT,
+`name` VARCHAR(45) NOT NULL,
+`email` VARCHAR(45) NOT NULL,
+`phone` VARCHAR(45) NOT NULL,
+`address` VARCHAR(100) NULL,
+PRIMARY KEY (`id`)
+);
+
+INSERT INTO dev.customers(id, name, email, phone, address)
+values (1, 'Jonn Doe', 'jhon@mail.com', '010-0000-0000', '');
+
+CREATE TABLE `t_users` (
+`user_no` INT PRIMARY KEY AUTO_INCREMENT,
+`user_id` VARCHAR(100) NOT NULL UNIQUE,
+`user_pwd` VARCHAR(100) NOT NULL,
+`user_name` VARCHAR(100),
+`user_gender` CHAR(1) CHECK( user_gender IN('F', 'M') ), 
+`user_age` INT,
+`join_date` DATETIME NOT NULL DEFAULT current_timestamp()
+);
+
+INSERT INTO t_users
+SET user_id = 'admin', user_pwd = 'admin';
+
+COMMIT;
