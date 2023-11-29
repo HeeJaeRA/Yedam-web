@@ -10,6 +10,5 @@ npm install cors
 
 npm update
 
-https://chromewebstore.google.com/detail/boomerang-soap-rest-clien/eipdnjedkpcnlmmdfdkgfpljanehloah?utm_source=app-launcher
-
+// postman
 https://www.postman.com/downloads/?utm_source=postman-home
