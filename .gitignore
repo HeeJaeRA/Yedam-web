@@ -81,7 +81,7 @@ web_modules/
 .env.development.local
 .env.test.local
 .env.production.local
-.env.local
+.env.*.local
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -151,5 +151,25 @@ docs/_book
 
 # TODO: where does this rule come from?
 test/
+.DS_Store
+node_modules
+/dist
+
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 
 # End of https://www.toptal.com/developers/gitignore/api/node,vue
