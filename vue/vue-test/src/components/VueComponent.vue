@@ -16,7 +16,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 p {
 	background-color: papayawhip;
 	text-align: center;
