@@ -21,10 +21,10 @@
 		<input type="checkbox" v-model="chData" true-value="진짜" false-value="가짜" />
 		<p>{{ chData }}</p>
 		<div>
-			<input type="checkbox" value="서울" v-model="city" />서울
-			<input type="checkbox" value="대구" v-model="city" />대구
-			<input type="checkbox" value="부산" v-model="city" />부산
-			<p>{{ city }}</p>
+			<label><input type="checkbox" value="서울" v-model="city" />서울</label>
+			<label><input type="checkbox" value="대구" v-model="city" />대구</label>
+			<label><input type="checkbox" value="부산" v-model="city" />부산</label>
+			<p>{{ city[0] }}</p>
 		</div>
 	</div>
 </template>
@@ -39,7 +39,7 @@ export default {
 			selModel: 'winter',
 			textModel: '크아아악 투명드래곤이 울부짖었다',
 			chData: '',
-			city: '',
+			city: [],
 		};
 	},
 };
