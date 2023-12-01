@@ -24,8 +24,22 @@
 			<label><input type="checkbox" value="서울" v-model="city" />서울</label>
 			<label><input type="checkbox" value="대구" v-model="city" />대구</label>
 			<label><input type="checkbox" value="부산" v-model="city" />부산</label>
-			<p>{{ city[0] }}</p>
+			<p>{{ city }}</p>
 		</div>
+		<div>
+			<label><input type="radio" value="독서" v-model="hobby" />독서</label>
+			<label><input type="radio" value="영화" v-model="hobby" />영화</label>
+			<label><input type="radio" value="운동" v-model="hobby" />운동</label>
+			<p>{{ hobby }}</p>
+		</div>
+		<hr />
+		<p>하아아안라아아아보오오옹</p>
+		<img v-bind:style="styleData" v-bind:src="imgUrl" />
+		<!-- <img v-bind:style="[backSetting, addStyle]" v-bind:src="imgUrl" /> -->
+		<hr />
+		<div class="container" v-bind:class="{ active: isActive, 'text-red': hasError }">Class Binding First</div>
+		<br />
+		<div class="container" v-bind:class="myClass">Class Binding Second</div>
 	</div>
 </template>
 <script>
@@ -40,7 +54,38 @@ export default {
 			textModel: '크아아악 투명드래곤이 울부짖었다',
 			chData: '',
 			city: [],
+			hobby: '운동',
+			imgUrl: './assets/han.jpg',
+			styleData: {
+				backgroundColor: 'skyblue',
+				width: '150px',
+				height: '200px',
+			},
+			// backSetting: 'background-color:skyblue; width:150px; ', addStyle: 'height:200px',
+			isActive: true,
+			// hasError: false,
+			myClass: 'active',
 		};
+	},
+	computed: {
+		hasError() {
+			return !this.isActive;
+		},
 	},
 };
 </script>
+<style scoped>
+.container {
+	width: 100%;
+	height: 100px;
+}
+
+.active {
+	background-color: aquamarine;
+	font-weight: bold;
+}
+
+.text-red {
+	color: red;
+}
+</style>
