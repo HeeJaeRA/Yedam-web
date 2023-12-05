@@ -9,6 +9,7 @@
 import PropsCom from './components/PropsComponent.vue';
 import SlotCom from './components/TextModal.vue';
 import ComAPI from './components/CompositionInterface.vue';
+import StoreCom from './components/StoreComponent.vue';
 
 export default {
 	name: 'App',
@@ -22,6 +23,7 @@ export default {
 		PropsCom,
 		SlotCom,
 		ComAPI,
+		StoreCom,
 	},
 };
 </script>

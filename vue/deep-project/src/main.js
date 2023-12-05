@@ -1,8 +1,10 @@
 import { createApp } from 'vue';
 import App from './App.vue';
 import mixin from './mixin';
+import store from './store';
 
 createApp(App)
+	.use(store)
 	.mixin(mixin)
 	.directive('focus', {
 		mounted(el, binding, vnode, prevVNode) {
