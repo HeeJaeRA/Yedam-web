@@ -16,7 +16,7 @@
 				</tr>
 				<tr>
 					<th class="text-right table-primary">생년월일</th>
-					<td class="text-center">{{ dataFormat(empInfo.birth_date) }}</td>
+					<td class="text-center">{{ dateFormat(empInfo.birth_date) }}</td>
 				</tr>
 				<tr>
 					<th class="text-right table-primary">이름</th>
@@ -28,11 +28,11 @@
 				</tr>
 				<tr>
 					<th class="text-right table-primary">입사일자</th>
-					<td class="text-center">{{ dataFormat(empInfo.hire_date) }}</td>
+					<td class="text-center">{{ dateFormat(empInfo.hire_date) }}</td>
 				</tr>
 				<tr>
 					<th class="text-right table-primary">발령일자</th>
-					<td class="text-center">{{ dataFormat(empInfo.from_date) }}</td>
+					<td class="text-center">{{ dateFormat(empInfo.from_date) }}</td>
 				</tr>
 				<tr>
 					<th class="text-right table-primary">급여</th>
@@ -77,7 +77,7 @@ export default {
 	methods: {
 		fireDay() {
 			let firedate = new Date();
-			this.today = this.dataFormat(firedate);
+			this.today = this.dateFormat(firedate);
 		},
 		async getEmpInfo() {
 			let result = await axios.get(`/api/employees/${this.searchNo}`).catch((err) => console.log(err));
@@ -100,7 +100,7 @@ export default {
 		editEmp(Enum) {
 			this.$router.push({ path: '/empUpdate', query: { num: Enum } });
 		},
-		dataFormat(value) {
+		dateFormat(value) {
 			let date = new Date(value);
 			let year = date.getFullYear();
 			let month = ('0' + (date.getMonth() + 1)).slice(-2);
