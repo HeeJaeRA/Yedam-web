@@ -18,7 +18,7 @@
 				<td>{{ emp.dept_no }}</td>
 				<td>{{ emp.dept_name }}</td>
 				<td>{{ dataFormat(emp.birth_date) }}</td>
-				<td>{{ emp.first_name + ' ' + emp.last_name }}</td>
+				<td>{{ emp.last_name + ' ' + emp.first_name }}</td>
 				<td>{{ emp.gender }}</td>
 				<td>{{ dataFormat(emp.hire_date) }}</td>
 				<td>{{ dataFormat(emp.from_date) }}</td>

@@ -20,7 +20,7 @@
 				</tr>
 				<tr>
 					<th class="text-right table-primary">이름</th>
-					<td class="text-center">{{ empInfo.first_name + ' ' + empInfo.last_name }}</td>
+					<td class="text-center">{{ empInfo.last_name + ' ' + empInfo.first_name }}</td>
 				</tr>
 				<tr>
 					<th class="text-right table-primary">성별</th>
@@ -55,11 +55,13 @@ export default {
 		return {
 			searchNo: '',
 			empInfo: {},
+			today: '',
 		};
 	},
 	created() {
 		this.searchNo = this.$route.query.num;
 		this.getEmpInfo();
+		this.fireDay();
 	},
 	computed: {
 		genderFormat() {
@@ -73,22 +75,27 @@ export default {
 		},
 	},
 	methods: {
+		fireDay() {
+			let firedate = new Date();
+			this.today = this.dataFormat(firedate);
+		},
 		async getEmpInfo() {
 			let result = await axios.get(`/api/employees/${this.searchNo}`).catch((err) => console.log(err));
-			console.log(result.data);
 			this.empInfo = result.data;
 		},
 		async deleteEmp(empNo) {
-			let datas = { data: '2023-12-06' };
-			let result = await axios.delete(`/api/employees/${empNo}`, datas).catch((err) => console.log(err));
-			console.log(result);
-			// let count = result.data.changedRows;
-			// if (count == 0) {
-			// 	alert('삭제 실패');
-			// } else {
-			// 	alert('삭제 성공');
-			// 	this.$router.push({ name: 'empList' });
-			// }
+			let result = await axios
+				.delete(`/api/employees/${empNo}`, { data: { data: this.today } })
+				.catch((err) => console.log(err));
+			// console.log(result);
+			// console.log(result.data.length);
+			let count = result.data.length;
+			if (count == 2) {
+				alert('삭제 성공');
+				this.$router.push({ name: 'empList' });
+			} else {
+				alert('삭제 실패');
+			}
 		},
 		editEmp(Enum) {
 			this.$router.push({ path: '/empUpdate', query: { num: Enum } });

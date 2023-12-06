@@ -4,6 +4,7 @@ const app = express();
 const mysql = require('./db.js');
 
 app.use(express.json({ limit: '50mb' }));
+app.use(express.urlencoded({ extended: true }));
 
 app.listen(3000, () => {
 	console.log('서버 시작: 포트 번호 3000');
