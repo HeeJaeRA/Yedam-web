@@ -3,3 +3,11 @@ npm install -g @vue/cli
 vue create vue-project
 
 vue add router
+
+npm run build
+
+배포 대상 app.js 추가
+app.use(express.static('dist')); 
+app.get('/', (req, resp) => {
+	resp.sendFile('/dist/index.html');
+});
