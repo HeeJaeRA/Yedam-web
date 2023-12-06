@@ -1,6 +1,12 @@
 import { createStore } from 'vuex';
+import createPersistedState from 'vuex-persistedstate';
 
 const store = createStore({
+	plugins: [
+		createPersistedState({
+			paths: ['cart'],
+		}),
+	],
 	state() {
 		return {
 			cart: [
@@ -28,11 +34,11 @@ const store = createStore({
 			state.cart.push(info);
 		},
 	},
-	// actions : {
-	//     addProduct(state, info) {
-
-	//     }
-	// }
+	actions: {
+		delay(context, info) {
+			setTimeout(() => context.commit('addProduct', info), 2000);
+		},
+	},
 });
 
 export default store;

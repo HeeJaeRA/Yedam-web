@@ -9,7 +9,9 @@
 				<input type="radio" value="B" v-model="productInfo.category" /> B
 			</label>
 			<button type="button" @click="addCart">추가</button>
+			<button type="button" @click="delayAdd">느리게 추가</button>
 		</form>
+		<label>전체 항목: {{ total }}</label>
 		<table>
 			<thead>
 				<tr>
@@ -57,6 +59,15 @@ export default {
 				category: '',
 			};
 			this.$store.commit('addProduct', cloneObj);
+		},
+		delayAdd() {
+			let cloneObj = Object.assign({}, this.productInfo);
+			this.productInfo = {
+				product_id: '',
+				product_name: '',
+				category: '',
+			};
+			this.$store.dispatch('delay', cloneObj);
 		},
 	},
 };

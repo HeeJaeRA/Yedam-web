@@ -15,7 +15,7 @@ export default {
 	name: 'App',
 	data() {
 		return {
-			selected: 'PropsCom',
+			selected: 'StoreCom',
 			isFocused: true,
 		};
 	},

@@ -1,0 +1,6 @@
+npm install vuex@next --save
+
+npm install vuex-persistedstate --save
+
+// node-pre-gyp error나면
+npm install --dev node-pre-gyp
