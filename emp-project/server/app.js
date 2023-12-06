@@ -20,6 +20,11 @@ app.get('/employees/:num', async (req, resp) => {
 	resp.send(result[0]);
 });
 
+app.get('/dept', async (req, resp) => {
+	let result = await mysql.query('deptList');
+	resp.send(result);
+});
+
 app.post('/employees', async (req, resp) => {
 	let emp = await mysql.query('employeeInsert', req.body.emp);
 	let dept = await mysql.query('deptInsert', req.body.dept);
