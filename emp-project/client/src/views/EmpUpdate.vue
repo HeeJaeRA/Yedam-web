@@ -78,10 +78,8 @@ export default {
 		async getEmpInfo() {
 			let result = await axios.get(`/api/employees/${this.searchNo}`).catch((err) => console.log(err));
 			this.empInfo = result.data;
-			let hireDate = this.dateFormat(this.empInfo.hire_date);
-			this.empInfo.hire_date = hireDate;
-			let birthDate = this.dateFormat(this.empInfo.birth_date);
-			this.empInfo.birth_date = birthDate;
+			this.empInfo.birth_date = this.dateFormat(this.empInfo.birth_date);
+			this.empInfo.hire_date = this.dateFormat(this.empInfo.hire_date);
 		},
 		dateFormat(value) {
 			let date = new Date(value);
@@ -94,7 +92,7 @@ export default {
 		async editEmp() {
 			let datas = {
 				data: {
-					birth_date: this.empInfo.birthDate,
+					// birth_date: this.empInfo.birthDate,
 					first_name: this.empInfo.first_name,
 					last_name: this.empInfo.last_name,
 				},
