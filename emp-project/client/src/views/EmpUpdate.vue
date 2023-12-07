@@ -9,9 +9,9 @@
 				<tr>
 					<th class="text-right table-primary">부서명</th>
 					<td class="text-center">
-						<select v-model="empInfo.dept_no">
+						<select v-model="empInfo.dept_no" disabled>
 							<option v-for="(dept, index) in depts" :key="index" :value="dept.dept_no">
-								{{ dept.dept_name }}
+								{{ empInfo.dept_name }}
 							</option>
 						</select>
 					</td>
@@ -45,7 +45,7 @@
 				</tr>
 				<tr>
 					<th class="text-right table-primary">급여</th>
-					<td class="text-center"><input type="text" v-model="empInfo.salary" /></td>
+					<td class="text-center"><input type="text" v-model="empInfo.salary" readonly /></td>
 				</tr>
 			</table>
 		</div>
