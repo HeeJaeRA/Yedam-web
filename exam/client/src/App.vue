@@ -1,6 +1,7 @@
 <template>
 	<Header />
-	<router-view />
+	<!-- key 속성 라우터 호출할때마다 페이지 리로드 -->
+	<router-view :key="$route.fullPath" />
 	<Footer />
 </template>
 

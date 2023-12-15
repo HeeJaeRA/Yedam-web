@@ -111,6 +111,7 @@ td {
 	width: 200px;
 }
 .bcon {
+	width: 700px;
 	height: 300px;
 }
 </style>

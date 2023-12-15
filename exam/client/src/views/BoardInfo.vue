@@ -18,24 +18,17 @@
 	</table>
 	<br />
 	<button @click="editBoard(boardInfo.NO)" class="btn btn-warning">수정</button>
+
 	<br /><br />
-	<template v-if="count != 0">
-		<table>
-			<tr>
-				댓글 목록
-			</tr>
-			<tr :key="idx" v-for="(reply, idx) in reply">
-				<td class="rcon">{{ reply.CONTENT }}{{ reply.WRITER }} {{ $dateFormat(reply.CREATED_DATE) }}</td>
-			</tr>
-		</table>
-	</template>
-	<template v-else>
-		<p>댓글 목록이 없습니다.</p>
-	</template>
+	<div class="row">
+		<ReplyList v-if="boardInfo.c_length > 0" v-bind:bno="boardInfo.NO" />
+		<div v-else class="card text-center">댓글 없음</div>
+	</div>
 </template>
 
 <script>
 import axios from 'axios';
+import ReplyList from '../components/ReplyList.vue';
 
 export default {
 	data() {
@@ -45,10 +38,12 @@ export default {
 			reply: [],
 		};
 	},
+	components: {
+		ReplyList,
+	},
 	created() {
 		this.searchNo = this.$route.query.bno;
 		this.getBoardInfo();
-		this.getReply();
 	},
 	computed: {
 		count() {
@@ -62,10 +57,6 @@ export default {
 		},
 		editBoard(bno) {
 			this.$router.push({ path: '/boardForm', query: { bno: bno } });
-		},
-		async getReply() {
-			let result = await axios.get(`api/reply/${this.searchNo}`).catch((err) => console.log(err));
-			this.reply = result.data;
 		},
 	},
 };

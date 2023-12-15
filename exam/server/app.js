@@ -4,7 +4,7 @@ const app = express();
 const mysql = require('./db.js');
 
 app.use(express.json({ limit: '50mb' }));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 app.listen(3000, () => {
 	console.log('서버 시작: 포트 번호 3000');
@@ -31,7 +31,7 @@ app.put('/board/:bno', async (req, rep) => {
 	rep.send(result);
 });
 
-app.get('/reply/:bno', async (req, rep) => {
-	let result = await mysql.query('replyList', req.params.bno);
+app.get('/reply', async (req, rep) => {
+	let result = await mysql.query('replyList', req.query.bno);
 	rep.send(result);
 });
